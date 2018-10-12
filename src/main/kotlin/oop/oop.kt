@@ -10,4 +10,6 @@ fun main(args: Array<String>) {
     // TODO (3) pro každý tvar v kolekci shapes vypište do konzole jeho typ a obsah pomocí funkce println()
 
     // TODO (4) Abstraktní třídu nahraďte rozhraním
+
+    // TODO (5) Doplňte do kolekce shapes čtverec, který definujete pomocí anonymní třídy
 }
