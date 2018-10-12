@@ -32,12 +32,15 @@ class Rectangle(private val length: Double, private val width: Double) {
 
 fun main(args: Array<String>) {
 
-    // TODO (1) přepracujte třídy Rectangle, Circle a Shape
+    val shapes: List<Shape> = listOf(
+            Circle(4.0),
+            Rectangle(2.0, 4.0),
+            Circle(1.5)
+    )
 
-    // TODO (2) inicializujte kolekci, naplňte ji různými tvary (Rectangle, Circle)
-    val shapes: List<Shape> = listOf(Shape(), Shape(), Shape())
-
-    // TODO (3) pro každý tvar v kolekci shapes vypište do konzole jeho typ a obsah pomocí funkce println()
+    for(shape in shapes) {
+        println("Shape of type: ${shape.type} with area equal to: ${shape.area()}")
+    }
 
     // TODO (4) Abstraktní třídu nahraďte rozhraním
 
