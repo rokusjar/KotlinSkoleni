@@ -12,4 +12,6 @@ fun main(args: Array<String>) {
     // TODO (4) Abstraktní třídu nahraďte rozhraním
 
     // TODO (5) Doplňte do kolekce shapes čtverec, který definujete pomocí anonymní třídy
+
+    // TODO (6) Dokončete třídu Circle
 }
