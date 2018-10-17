@@ -13,5 +13,5 @@ fun main(args: Array<String>) {
 
     // TODO (5) Doplňte do kolekce shapes čtverec, který definujete pomocí anonymní třídy
 
-    // TODO (6) Dokončete třídu Circle
+    // TODO (6) Doplntě další konstruktor pro třídu Rectangle
 }
