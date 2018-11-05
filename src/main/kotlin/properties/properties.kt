@@ -11,10 +11,12 @@ class Person(val firstName: String, val lastName: String) {
      */
 
 
-    // TODO (3) Přidejte lateinit property fullNameWithNickname a metodu setup která ji inicializuje
+    // TODO (3) Přidejte lateinit property adress typu Adress a metodu setupAdress která ji inicializuje
 
     // TODO (4) Přidejte property age a delegujte ji na existujícího delegáta observable. Pomocí něj vypište do konzole jak se mění hodnota age
 }
+
+class Adress(val city: String, val street: String)
 
 
 fun main(args: Array<String>) {
