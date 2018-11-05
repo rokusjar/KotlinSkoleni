@@ -13,7 +13,10 @@ fun main(args: Array<String>) {
             Sum(Const(2.0), Const(4.0))
     )
 
-    // TODO (1) vytvořte funkci eval, která jako jediný parametr přijme Expression a vrátí jeho výsledek
+    /*
+        TODO (1) vytvořte funkci eval, která jako jediný parametr přijme Expression a vrátí jeho výsledek.
+        TODO     (V případě Sum vrací součet e1 e2. V případě Const rovnou number)
+     */
     fun eval(expr: Expression): Double = when (expr) {
         is Const -> expr.number
         is Sum -> eval(expr.e1) + eval(expr.e2)
