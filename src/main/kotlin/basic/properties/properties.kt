@@ -5,9 +5,14 @@ import kotlin.properties.Delegates
 
 class Person(val firstName: String, val lastName: String) {
 
+    // TODO (1) Přidejte property fullName s custom getterm, která bude spojovat firstName a lastName
     val fullName: String
         get() = "${this.firstName} ${this.lastName}"
 
+    /*
+    TODO (2) Přidejte property nickname typu var s výchozí hodnotou Unknown, custom getterem který vrátí "firstName AKA nickname"
+    TODO a custom setterm který nejdřív zkontroluje nastavovanou hodnotu a nastaví ji pouze pokud není blank
+    */
     var nickname: String = "Unknown"
         get() = "$firstName AKA $field"
         set(value) {
@@ -22,6 +27,7 @@ class Person(val firstName: String, val lastName: String) {
         adress = Adress("London", "Baker street")
     }
 
+    // TODO (4) Přidejte property age a delegujte ji na existujícího delegáta observable. Pomocí něj vypište do konzole jak se mění hodnota age
     var age: Int by Delegates.observable(0,
             onChange = { property, oldValue, newValue -> println("Age changed from $oldValue to $newValue") })
 }
@@ -30,6 +36,9 @@ class Adress(val city: String, val street: String)
 
 
 fun main(args: Array<String>) {
+
+    // TODO vyzkoušejte třídu Person
+
     val person = Person("John", "Wick")
     person.nickname = "Bogeyman"
 
