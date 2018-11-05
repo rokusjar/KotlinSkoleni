@@ -23,7 +23,7 @@ class Person(val firstName: String, val lastName: String) {
     // TODO (3) Přidejte lateinit property adress typu Adress a metodu setupAdress která ji inicializuje
     lateinit var adress: Adress
 
-    fun setup() {
+    fun setupAdress() {
         adress = Adress("London", "Baker street")
     }
 
@@ -32,7 +32,9 @@ class Person(val firstName: String, val lastName: String) {
             onChange = { property, oldValue, newValue -> println("Age changed from $oldValue to $newValue") })
 }
 
-class Adress(val city: String, val street: String)
+class Adress(val city: String, val street: String) {
+    override fun toString(): String = "$street, $city"
+}
 
 
 fun main(args: Array<String>) {
@@ -45,8 +47,8 @@ fun main(args: Array<String>) {
     println("Full name: ${person.fullName}")
     println("Nickname: ${person.nickname}")
 
-    person.setup()
-    println("Full name with nickname: ${person.adress}")
+    person.setupAdress()
+    println("Adress: ${person.adress}")
 
     person.age = 32
     println("Age: ${person.age}")
