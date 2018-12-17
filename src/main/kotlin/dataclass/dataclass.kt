@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
 
     // TODO (1) vytvořte funkci eval, která jako jediný parametr přijme Expression a vrátí jeho výsledek
 
-    // TODO (2) pro každý výraz v kolekci expressions vypište do koznole výsledek výrazu
+    // TODO (2) pro každý výraz v kolekci expressions vypište do konzole výsledek výrazu
 
     // TODO (3) třídu Expression označte jako sealed class a sledujte co se stane
 }
