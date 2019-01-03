@@ -1,4 +1,4 @@
-package collections
+package basic.collections
 
 fun main(args: Array<String>) {
 

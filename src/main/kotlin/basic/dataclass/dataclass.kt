@@ -1,4 +1,4 @@
-package dataclass
+package basic.dataclass
 
 open class Expression
 

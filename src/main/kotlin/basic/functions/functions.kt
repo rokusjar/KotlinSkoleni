@@ -1,4 +1,4 @@
-package functions
+package basic.functions
 
 fun main(args: Array<String>) {
 

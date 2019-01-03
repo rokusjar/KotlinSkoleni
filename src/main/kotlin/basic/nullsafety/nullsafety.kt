@@ -1,4 +1,4 @@
-package nullsafety
+package basic.nullsafety
 
 data class Adress(val city: String, val country: String)
 

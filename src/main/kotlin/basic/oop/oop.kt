@@ -1,4 +1,4 @@
-package oop
+package basic.oop
 
 class Shape {
     // TODO (1.1) Doplntě property která bude popisovat o jaký tvar se jedná (Rectangle, Circle)

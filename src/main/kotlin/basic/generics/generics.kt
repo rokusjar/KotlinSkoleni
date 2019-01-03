@@ -1,4 +1,4 @@
-package generics
+package basic.generics
 
 interface Eatable
 open class Fruit
