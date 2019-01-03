@@ -5,7 +5,7 @@ interface Shape {
 
     val type: Type
 
-    abstract fun area(): Double
+    fun area(): Double
 
     fun draw(x: Int, y: Int) = println("${type.name} has been drawn on these coordinates x: $x y: $y")
 
