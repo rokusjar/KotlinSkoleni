@@ -1,6 +1,6 @@
 package basic.ranges
 
-fun main(args: Array<String>) {
+fun main() {
 
     val x = 3
 
