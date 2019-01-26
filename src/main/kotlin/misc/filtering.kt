@@ -16,4 +16,8 @@ fun main() {
     // TODO kod je napsan java stylem - ukol je upravit/zjednodusit kod pouzitim kotlin funkci
     // tips: filter, filterNotNull, listOf
 
+    println(listOf("word", "home", "one", null)
+            .filterNotNull()
+            .filter { it.length % 2 == 0 })
+
 }
