@@ -21,7 +21,7 @@ fun main() {
 
 // TODO (3) use only one method - use default parameter value for 'separator'
 
-// TODO (4) make  getFirstWord extension function to String
+// TODO (4) make getFirstWord extension function to String
 
 // TODO (5) make it as extension property called firstWord - note separator will not be there anymore
 
