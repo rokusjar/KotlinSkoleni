@@ -2,7 +2,7 @@ package misc
 
 fun main() {
 
-    val s = TODO()  // solution s = "abc"
+    val s = TODO()
     println(s as? Int)    // null
     println(s as Int?)    // exception
 
