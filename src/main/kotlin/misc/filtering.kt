@@ -13,7 +13,7 @@ fun main() {
     }
     println(filterList)
 
-    // TODO kod je napsan v java stylem - ukol je upravit/zjednodusit kod pouzitim kotlin funkci
+    // TODO kod je napsan java stylem - ukol je upravit/zjednodusit kod pouzitim kotlin funkci
     // tips: filter, filterNotNull, listOf
 
 }
