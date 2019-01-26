@@ -2,7 +2,7 @@ package basic.collections
 
 fun main(args: Array<String>) {
 
-    var mutableColors = mutableListOf("red", "green", "blue")
+    val mutableColors = mutableListOf("red", "green", "blue")
 
     // TODO (1) Vytvořte read-only(immutable) pohled na kolekci mutableColors
 
