@@ -13,5 +13,11 @@ fun main() {
     */
 
     // TODO prepsat do kotlinu a pouzit "Destructuring Declarations"
+    val map = mapOf(
+            "1" to "one",
+            "2" to "two",
+            "5" to "five")
+    for ((key, value) in map)
+        println("$key:$value")
 
 }
