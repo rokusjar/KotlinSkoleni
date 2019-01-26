@@ -23,11 +23,19 @@ fun main() {
 
 // TODO (4) make getFirstWord extension function to String
 
-// TODO (5) make it as extension property called firstWord - note separator will not be there anymore
+// TODO (5) use "let" function on "indexOf" and make method body as single expression (no code block {} used)
 
-// After Advanced - Interop
+// After Advanced - Interop Lesson
 
-// TODO (6) call extension function from java
+// TODO (6) make possible to call extension function on null string and return nul and that case
+// tips: extent not String but String?, use "run" function
 
-// TODO (7) add @JvmFile to have nicer name
+// TODO (7) make it as extension property called firstWord - note separator will not be there anymore
+
+// TODO (8) call extension function from java
+// see StringUtils.java
+
+// TODO (9) add @JvmFile to have nicer name like "Utils"
+// see StringUtils.java
+
 
