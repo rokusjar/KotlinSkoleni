@@ -36,4 +36,6 @@ fun main() {
     // TODO (11) roztřiď účty podle typu
 
     // TODO (12) vytvoř mapu, kde klíčem bude typ účtu a hodnota bude poslední nalezený účet daného typu
+
+    // TODO (13) vypiš sumu všech zůstatků
 }
