@@ -1,6 +1,6 @@
 package advanced.collections
 
-data class Account(val accountNo: String, val balance: Double, var accountType: AccountType? = null)
+data class Account(val accountNo: String, val balance: Double = 0.0, var accountType: AccountType? = null)
 enum class AccountType { CURRENT, OVERDRAFT }
 
 val accountList = listOf(
