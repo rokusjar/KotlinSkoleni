@@ -52,5 +52,8 @@ fun main() {
     println("Accounts associated by account type: ${accountList.associateBy { it.accountType }}")
 
     // TODO (13) vypiš sumu všech zůstatků
-    println("Sum of balances: ${accountList.fold(0.0) { balance, account -> balance + account.balance }}")
+    println("Sum of balances: ${accountList.sumByDouble { it.balance }}")
+
+    // TODO (14) vypiš průměrný zůstatek ze všech účtů
+    println("Average balance: ${accountList.map { it.balance }.average()}")
 }
