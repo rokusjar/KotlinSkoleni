@@ -1,4 +1,4 @@
-package patterns;
+package basic.patterns;
 
 public class BankAccount {
     private String accountNumber;

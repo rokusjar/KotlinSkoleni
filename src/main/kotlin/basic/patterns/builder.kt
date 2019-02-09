@@ -1,4 +1,4 @@
-package patterns
+package basic.patterns
 
 // TODO (2) naimplementujte to samé v Kotlinu a vytvořte nový typ účtu BankAccountKt
 data class BankAccountKt(val accountNumber: String,
