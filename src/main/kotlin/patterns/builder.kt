@@ -12,8 +12,8 @@ fun main() {
     // Poznámka: všiměte si přesně jaký typ vám builder vrátí.
     // Co musíte ještě udělat, abyste dostali rozumný výstup
     val account = BankAccount.Builder("13212")
-            .setOwner("Karel Novák")
-            .setOpeningBalance(2000.0)
+            .withOwner("Karel Novák")
+            .openingBalance(2000.0)
             .build()
     println("New java account: $account")
 
@@ -23,14 +23,16 @@ fun main() {
     println("New kotlin account: $bankAccountKt")
 
     // TODO (3) vytvořte funkci AccountDsl (fake constructor) - vyzkoušejte DLS přístup a přepoužijte Java builder,
-    // pomocí nové funkce vytvořte nový účet a vypište do konzole
-    // porovnejte styl zápisu oproti TODO (1)
+    // pomocí nové funkce vytvořte nový účet a vypište do konzole,
+    // porovnejte styl zápisu oproti TODO (1).
+    // Bonusová otázka: jak by musel být implementován Java builder, abychom mohli nastavovat jednotlivé atributy jako property (např. owner = "Karel Novák")?
+    // Odpověď: musel by mít naimplemetovaný pro každý atribut setter, ale i getter! Kotlin nepodporuje v tuto chvíli set-only property.
     fun AccountDsl(accountNumber: String, init: BankAccount.Builder.() -> Unit): BankAccount {
         return BankAccount.Builder(accountNumber).apply(init).build()
     }
     val freshMadeAccount = AccountDsl("13212") {
-        setOwner("Karel Novák")
-        setOpeningBalance(2000.0)
+        withOwner("Karel Novák")
+        openingBalance(2000.0)
     }
     println("Fresh made account: $freshMadeAccount")
 }

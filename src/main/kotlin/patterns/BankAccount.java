@@ -1,7 +1,5 @@
 package patterns;
 
-import org.jetbrains.annotations.NotNull;
-
 public class BankAccount {
     private String accountNumber;
     private String owner;
@@ -44,12 +42,12 @@ public class BankAccount {
             this.accountNumber = accountNumber;
         }
 
-        public Builder setOwner(String owner) {
+        public Builder withOwner(String owner) {
             this.own = owner;
             return this;
         }
 
-        public Builder setOpeningBalance(double balance) {
+        public Builder openingBalance(double balance) {
             this.balance = balance;
             return this;
         }
