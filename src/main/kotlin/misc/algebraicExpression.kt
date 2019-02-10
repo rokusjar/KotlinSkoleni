@@ -8,11 +8,12 @@ sealed class Node()
 class Value(val value: Number): Node()
 class Operator(val left: Node, val right: Node, val operator: (Double, Double) -> Double) : Node()
 
+// Podpůrné extension metody pro snažší ruční vyrábění stromů v testu pro základní operátory,
+// nebylo cílem úlohy, je to jen taková hrátka navíc ;-)
 operator fun Node.plus(other: Node): Node = Operator(this, other, Double::plus)
 operator fun Node.minus(other: Node): Node = Operator(this, other, Double::minus)
 operator fun Node.times(other: Node): Node = Operator(this, other, Double::times)
 operator fun Node.div(other: Node): Node = Operator(this, other, Double::div)
-
 fun Number.toNode() = Value(this)
 
 // TODO (2) implementujte funkci calculate, která tokáže takový binární strom vyhodnotit
