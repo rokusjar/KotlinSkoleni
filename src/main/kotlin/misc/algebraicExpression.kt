@@ -6,20 +6,20 @@ package misc
 // konstrukce stromu pak respektuje prioritu operátorů.
 sealed class Node()
 class Value(val value: Number): Node()
-class Operator(val left: Node, val right: Node, val operator: (Double, Double) -> Double) : Node()
+class Operator(val left: Node, val right: Node, val operator: (Number, Number) -> Number) : Node()
 
 // Podpůrné extension metody pro snažší ruční vyrábění stromů v testu pro základní operátory,
 // nebylo cílem úlohy, je to jen taková hrátka navíc ;-)
-operator fun Node.plus(other: Node): Node = Operator(this, other, Double::plus)
-operator fun Node.minus(other: Node): Node = Operator(this, other, Double::minus)
-operator fun Node.times(other: Node): Node = Operator(this, other, Double::times)
-operator fun Node.div(other: Node): Node = Operator(this, other, Double::div)
+operator fun Node.plus(other: Node): Node = Operator(this, other) { left, right -> left.toDouble() + right.toDouble()}
+operator fun Node.minus(other: Node): Node = Operator(this, other) { left, right -> left.toDouble() - right.toDouble()}
+operator fun Node.times(other: Node): Node = Operator(this, other) { left, right -> left.toDouble() * right.toDouble()}
+operator fun Node.div(other: Node): Node = Operator(this, other) { left, right -> left.toDouble() / right.toDouble()}
 fun Number.toNode() = Value(this)
 
 // TODO (2) implementujte funkci calculate, která tokáže takový binární strom vyhodnotit
-fun Node.calculate(): Double {
+fun Node.calculate(): Number {
     return when(this) {
-        is Value -> this.value.toDouble()
+        is Value -> this.value
         is Operator -> this.operator(this.left.calculate(), this.right.calculate())
     }
 }
