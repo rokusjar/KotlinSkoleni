@@ -5,7 +5,7 @@ package basic.patterns
 fun main() {
     // TODO (1) vytvořte pomocí javovského BankAccount builderu instanci účtu a vypište do konzole
     // Poznámka: všiměte si přesně jaký typ vám builder vrátí.
-    // Co musíte ještě udělat, abyste dostali rozumný výstup
+    // Co musíte ještě udělat, abyste dostali rozumný výstup?
 
     // TODO (2.1) vytvořte instanci účtu BankAccountKt a vypište do konzole
     // Porovnejte výstupy. Porovnejte náročnost implementace.
