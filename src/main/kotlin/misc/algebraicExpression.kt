@@ -8,6 +8,14 @@ sealed class Node()
 class Value(val value: Number): Node()
 class Operator(val left: Node, val right: Node, val operator: (Number, Number) -> Number) : Node()
 
+// TODO (2) implementujte funkci calculate, která dokáže takový binární strom vyhodnotit
+fun Node.calculate(): Number {
+    return when(this) {
+        is Value -> this.value
+        is Operator -> this.operator(this.left.calculate(), this.right.calculate())
+    }
+}
+
 // Podpůrné extension metody pro snažší ruční vyrábění stromů v testu pro základní operátory,
 // nebylo cílem úlohy, je to jen taková hrátka navíc ;-)
 operator fun Node.plus(other: Node): Node = Operator(this, other) { left, right -> left.toDouble() + right.toDouble()}
@@ -15,14 +23,6 @@ operator fun Node.minus(other: Node): Node = Operator(this, other) { left, right
 operator fun Node.times(other: Node): Node = Operator(this, other) { left, right -> left.toDouble() * right.toDouble()}
 operator fun Node.div(other: Node): Node = Operator(this, other) { left, right -> left.toDouble() / right.toDouble()}
 fun Number.toNode() = Value(this)
-
-// TODO (2) implementujte funkci calculate, která tokáže takový binární strom vyhodnotit
-fun Node.calculate(): Number {
-    return when(this) {
-        is Value -> this.value
-        is Operator -> this.operator(this.left.calculate(), this.right.calculate())
-    }
-}
 
 fun main() {
     // TODO (3) otestujte funkci calculate na různých stromech
