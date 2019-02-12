@@ -12,7 +12,6 @@ public class KotlinFromJava {
         System.out.println("Number of pages in book:" + effectiveJava);
 
         // TODO (3) Zavolejte funkci printAuthorAndTitle ze souboru utils2.kt a vypište pomocí ní autora a název knihy
-        System.out.println("Author and title: " + effectiveJava);
 
         // TODO (4) Přidejte anotaci do souboru utils.kt, která zajistí že následující řádek kódu bude fungovat
         // System.out.println("Number of pages in book:" + BookUtils.countPages(effectiveJava));
