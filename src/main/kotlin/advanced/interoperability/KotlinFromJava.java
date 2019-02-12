@@ -6,30 +6,32 @@ public class KotlinFromJava {
         final Book effectiveJava = bookStore.getBook("Effective Java");
 
         // TODO (1) Vypište do konzole název knihy effectiveJava. Všimněte si jak vypadá volání
-        System.out.println();
+        System.out.println(effectiveJava.getTitle());
 
         // TODO (2) Zavolejte funkci countPages ze souboru utils.kt a vypište pomocí ní počet stránek knihy effectiveJava
-        System.out.println("Number of pages in book:" + effectiveJava);
+        System.out.println("Number of pages in book:" + BookUtils.countPages(effectiveJava));
 
-        // TODO (3) Zavolejte funkci printAuthorAndTitle ze souboru utils2.kt a vypište pomocí ní autora a název knihy
+        // TODO (3) Zavolejte funkci printAuthorAndTitle ze souboru utils2.ktBookUtils a vypište pomocí ní autora a název knihy
+        BookUtils.printAuthorAndTitle(effectiveJava);
 
         // TODO (4) Přidejte anotaci do souboru utils.kt, která zajistí že následující řádek kódu bude fungovat
-        // System.out.println("Number of pages in book:" + BookUtils.countPages(effectiveJava));
+        System.out.println("Number of pages in book:" + BookUtils.countPages(effectiveJava));
 
         // TODO (5) Upravte soubory utils.kt a utils2.kt, tak aby Místo tříd UtilsKt a Utils2Kt vznikla pouze třída BookUtils
-        // BookUtils.printAuthorAndTitle(effectiveJava);
-        // System.out.println(BookUtils.countPages(effectiveJava));
+        BookUtils.printAuthorAndTitle(effectiveJava);
+        System.out.println(BookUtils.countPages(effectiveJava));
 
         // TODO (6) Upravte třídu Book.kt tak, aby kód na následujícím řádku fungoval
-        //System.out.println(effectiveJava.pages);
+        System.out.println(effectiveJava.pages);
 
         // TODO (7) Přidejte do třídy Book konstantu, kterou bude možné získat jako statickou proměnnou.
-        // Book.getSomeConstant
-        // Book.someConstant
+        System.out.println(Book.SOME_CONSTANT);
 
         // TODO (8) Zavolejte metodu sign z kotlin objektu BookService.
+        BookService.INSTANCE.sign(effectiveJava);
 
         // TODO (9) Zavolejte metodu sign staticky
+        BookService.sign(effectiveJava);
 
         // TODO (10) Vyřešte TODO ve třídě BookStore
     }

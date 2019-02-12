@@ -8,8 +8,8 @@ public class BookStore {
     // TODO (1) Přidejte do třídy Book anotaci, která zajistí že nebude nutné nastavovat pages na null a signed na false
     // Po úpravě bude stačit tento zápis: new Book("Effective Java", "Joshua Bloch")
     private List<Book> books = Arrays.asList(
-            new Book("Effective Java", "Joshua Bloch", null, false),
-            new Book("Hobit", "J.R.R. Tolkien", null, false)
+            new Book("Effective Java", "Joshua Bloch"),
+            new Book("Hobit", "J.R.R. Tolkien")
     );
     private int bookCount;
 
