@@ -42,6 +42,9 @@ fun main() {
     mutableList += 5
     println("Mutable Int list plus: $mutableList")
 
-    // TODO (4) Bonusová úloha: napiš kód na generování 16 místného klíče - povolené ascii znaky 0 (nula) až malé 'z'.
+    // TODO (4) vyber náhodný prvek z předchozího seznamu a vytiskni ho
+    println("Random value: ${mutableList[mutableList.indices.random()]}")
+
+    // TODO (5) Bonusová úloha: napiš kód na generování 16 místného klíče - povolené ascii znaky 0 (nula) až malé 'z'.
     println("Key: ${(1..16).map { ('0'..'z').random() }.joinToString(separator = "")}")
 }

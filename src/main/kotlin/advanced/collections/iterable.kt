@@ -41,9 +41,8 @@ fun main() {
     println("Accounts without type: $accountsWithoutType")
     println("Accounts with type: $accountsWithType")
 
-    // TODO (10) vytvoř seznam dvojic (Pair) kde první hodnota bude pořadové číslo účtu v seznamu a hodnota bude příslušný účet
-    // Co se stane když seznamy nebudou mít shodnou délku?
-    println("Pairs index and account: ${1..accountList.size zip accountList}")
+    // TODO (10) vytvoř seznam dvojic (Pair) kde první hodnota bude index účtu v seznamu a druhá bude příslušný účet
+    println("Pairs index and account: ${accountList.mapIndexed {index, account -> Pair(index, account) }}")
 
     // TODO (11) roztřiď účty podle typu
     println("Accounts by account type: ${accountList.groupBy { it.accountType }}")
@@ -52,8 +51,14 @@ fun main() {
     println("Accounts associated by account type: ${accountList.associateBy { it.accountType }}")
 
     // TODO (13) vypiš sumu všech zůstatků
-    println("Sum of balances: ${accountList.sumByDouble { it.balance }}")
+    println("Sum of balances: ${accountList.fold(0.0) { balance, account -> balance + account.balance }}")
 
     // TODO (14) vypiš průměrný zůstatek ze všech účtů
     println("Average balance: ${accountList.map { it.balance }.average()}")
+
+    // TODO (15) spoj seznamy souřadnic x a y do jednoho seznamu dvojic (x, y)
+    // Co se stane když seznamy nebudou mít shodnou délku?
+    val xCoordinates = listOf(3,56,18,33)
+    val yCoordinates = listOf(34,6,39,10)
+    println("Coordinates: ${xCoordinates zip yCoordinates}")
 }

@@ -17,15 +17,21 @@ fun main() {
     mutableBankCodesMap += ("RB" to "5500")
     println("Bank codes: [${mutableBankCodesMap.javaClass.canonicalName}:$mutableBankCodesMap]")
 
-    // TODO (3) vypiš zvlášť klíče a hodnoty mapy
+    // TODO (3) vypiš zvlášť klíče a hodnoty mapy bankovních kódů
     println("${bankCodesMap.keys}:${bankCodesMap.values}")
 
-    // TODO (4) prozkoumej možnosti iterace přes mapu
+    // TODO (4) prozkoumej možnosti iterace přes mapu bankovních kódů pomocí operátoru in
     // Proč je možné přes mapu iterovat i když nedědí od Iterable?
     for(banCode in bankCodesMap) {
         println("Map entry: $banCode")
     }
 
-    // TODO (5) vytvoř z předchozí mapy mapu, kde klíče budou hash kódy předchozích klíčů
+    // TODO (5) vytiskni obsah mapy bankovních kódů pomocí připravené funkce printIterable (funkci nesmíte měnit)
+    fun printIterable(i: Iterable<*>) {
+        println("Iterable printout: [${i.javaClass.canonicalName}:$i]")
+    }
+    printIterable(bankCodesMap.asIterable())
+
+    // TODO (6) vytvoř z předchozí mapy mapu, kde klíče budou hash kódy předchozích klíčů
     println("Map with hash code keys: ${bankCodesMap.mapKeys { it.hashCode() }}")
 }
