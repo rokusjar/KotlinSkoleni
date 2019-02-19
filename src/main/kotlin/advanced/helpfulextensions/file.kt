@@ -15,17 +15,20 @@ val transactions = listOf(
 
 fun main() {
     // TODO (1) zapiš seznam transakcí do souboru jako CSV (pro účely příklady bez použití externích knihoven)
-    File("data.csv")
-            .printWriter(Charset.forName("Windows-1250"))
+    val dataFile = File("data.csv")
+    dataFile.printWriter(Charset.forName("Windows-1250"))
             .use { out ->
                 out.println("datum;číslo účtu;číslo účtu protistrany;částka")
                 transactions.forEach { out.println(it.toCsv()) }
             }
 
-    // TODO (2) načti CSV soubor zapsaný v předchozím příkladě do seznamu transakcí (můžeš předpokládat nezměněnou strukturu souboru),
+    // TODO (2) vytvoř kopii vytvořeného souboru
+    dataFile.copyTo(File("dataCopy.csv"))
+
+    // TODO (3) načti CSV soubor zapsaný v předchozím příkladě do seznamu transakcí (můžeš předpokládat nezměněnou strukturu souboru),
     // vypiš načtené transakce do konzole
-    File("data.csv")
-            .readLines()
+    val dataFileCopy = File("dataCopy.csv")
+    dataFileCopy.readLines()
             .drop(1)
             .map {
                 with(it.split(";")) {
@@ -33,4 +36,11 @@ fun main() {
                 }
             }
             .forEach(::println)
+
+    // TODO (4) smaž oba výše vytvořené soubory
+    dataFile.delete()
+    dataFileCopy.delete()
+
+    // TODO (5) vypiš do konzole obsah aktuálního adresáře a rekurzivně všech podadresářů
+    File(".").walkTopDown().forEach { println(it) }
 }
