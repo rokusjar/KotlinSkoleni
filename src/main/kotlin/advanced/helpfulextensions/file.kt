@@ -3,6 +3,7 @@ package advanced.helpfulextensions
 import java.io.File
 import java.nio.charset.Charset
 import java.time.LocalDate
+import kotlin.system.measureTimeMillis
 
 data class Transaction(val date: LocalDate, val accountNumber: String, val partyAccount: String, val amount: Double)
 
@@ -41,6 +42,6 @@ fun main() {
     dataFile.delete()
     dataFileCopy.delete()
 
-    // TODO (5) vypiš do konzole obsah aktuálního adresáře a rekurzivně všech podadresářů
-    File(".").walkTopDown().forEach { println(it) }
+    // TODO (5) vypiš do konzole obsah aktuálního adresáře a rekurzivně všech podadresářů, změř jak dlouho v ms operace trvala
+    measureTimeMillis { File(".").walkTopDown().forEach { println(it) } }.also { println("Operace trvala $it ms.") }
 }
