@@ -1,11 +1,9 @@
 package advanced.helpfulextensions
 
-import kotlin.random.Random
-
 // TODO (2) napiš funkci generateForBlank která, přijímá na vstupu parametr typu string a pro:
 // - prázdný řetězec vygeneruje náhodný a vrátí ho
 // - neprázdný řetězec vrátí původní řetězec, ktrerý dostal na vstupu
-fun generateForBlank(input: String) = input.ifBlank { (1..6).map { Random.nextInt('a'.toInt(), 'z'.toInt()).toChar() }.joinToString("") }
+fun generateForBlank(input: String) = input.ifBlank { (1..6).map { ('a'..'z').random() }.joinToString("") }
 
 // TODO (3) napiš funkci, která pro daný víceřádkový řetězec vrátí pro každý řádek jeho pořadové číslo v řetězci a jeho velikost ve znacích
 // Funkce by měla fungovat i na null - tj. pro String?
