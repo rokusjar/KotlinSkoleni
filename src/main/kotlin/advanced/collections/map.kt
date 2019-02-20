@@ -5,7 +5,7 @@ fun main() {
     val bankCodesMap = mapOf("CSOB" to "0300", "KB" to "0100", "CS" to "0800")
     println("Bank codes: [${bankCodesMap.javaClass.canonicalName}:$bankCodesMap]")
 
-    // TODO (1.1) vypiš z mapy hodnotu klíče, který je v mapě obsažen a také hodnotu klíče, který v mapě není
+    // TODO (1.2) vypiš z mapy hodnotu klíče, který je v mapě obsažen a také hodnotu klíče, který v mapě není
     println("'CS':${bankCodesMap["CS"]}")
     println("'mBank':${bankCodesMap["mBank"]}")
 

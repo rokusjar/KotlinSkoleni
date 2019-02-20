@@ -1,7 +1,7 @@
 package advanced.collections
 
 fun main() {
-    // TODO (1) experimentuj s různými způsoby vytvoření pole
+    // TODO (1) experimentuj s různými způsoby vytvoření pole (vytiskni do konzole včetně kanonického jména třídy)
     val integerArray = arrayOf(1, 2, 3)
     println("Array ${integerArray.javaClass.canonicalName} : [${integerArray.joinToString(",")}]")
 
