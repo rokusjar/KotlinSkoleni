@@ -10,7 +10,8 @@ fun main() {
     println("".isPalindrome()) // true
     println("1".isPalindrome()) // true
     println("12".isPalindrome()) // false
-    println("11".isPalindrome()) // false
+    println("11".isPalindrome()) // true
+    println("121".isPalindrome()) // true
     println("jelenovipivonelej".isPalindrome()) // true
 
 }
