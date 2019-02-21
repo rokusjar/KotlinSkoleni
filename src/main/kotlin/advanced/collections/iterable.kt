@@ -1,6 +1,6 @@
 package advanced.collections
 
-data class Account(val accountNo: String, val balance: Double, var accountType: AccountType? = null)
+data class Account(val accountNo: String, val balance: Double = 0.0, var accountType: AccountType? = null)
 enum class AccountType { CURRENT, OVERDRAFT }
 
 val accountList = listOf(
@@ -30,12 +30,18 @@ fun main() {
 
     // TODO (9) rozděl seznam účtů na seznam účtů bez určení typu a seznam účtů, kde je typ určen
 
-    // TODO (10) vytvoř seznam dvojic (Pair) kde první hodnota bude pořadové číslo účtu v seznamu a hodnota bude příslušný účet
-    // Co se stane když seznamy nebudou mít shodnou délku?
+    // TODO (10) vytvoř seznam dvojic (Pair) kde první hodnota bude index účtu v seznamu a druhá bude příslušný účet
 
     // TODO (11) roztřiď účty podle typu
 
     // TODO (12) vytvoř mapu, kde klíčem bude typ účtu a hodnota bude poslední nalezený účet daného typu
 
     // TODO (13) vypiš sumu všech zůstatků
+
+    // TODO (14) vypiš průměrný zůstatek ze všech účtů
+
+    // TODO (15) spoj seznamy souřadnic x a y do jednoho seznamu dvojic (x, y)
+    // Co se stane když seznamy nebudou mít shodnou délku?
+    val xCoordinates = listOf(3,56,18,33)
+    val yCoordinates = listOf(34,6,39,10)
 }
