@@ -24,7 +24,6 @@ fun main() {
         throw TimeoutException()
     }
 
-
     val lock = ReentrantLock()
     thread {
         lock.withLock {
@@ -47,7 +46,7 @@ fun main() {
             println("${threadName()} Lock acquired")
         }
         println("${threadName()} Lock released")
-    }.join()
+    }
 
 }
 
