@@ -37,6 +37,6 @@ fun main() {
             println("${threadName()} Lock acquired")
         }
         println("${threadName()} Lock released")
-    }.join()
+    }
 
 }
