@@ -1,10 +1,12 @@
 package advanced.concurrency
 
-import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeUnit.SECONDS
 import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.thread
 import kotlin.concurrent.withLock
+
+inline fun threadName() = Thread.currentThread().name
 
 fun main() {
     // TODO check code for kotlin extension Lock.withLock and implements similar new Lock extension function called withTimeoutLock
@@ -16,25 +18,25 @@ fun main() {
     val lock = ReentrantLock()
     thread {
         lock.withLock {
-            println("${Thread.currentThread().name} Lock acquired")
-            TimeUnit.SECONDS.sleep(2)
+            println("${threadName()} Lock acquired")
+            SECONDS.sleep(2)
         }
-        println("${Thread.currentThread().name} Lock released")
+        println("${threadName()} Lock released")
     }
 
     thread {
         lock.withTimeoutLock(3) {
-            println("${Thread.currentThread().name} Lock acquired")
-            TimeUnit.SECONDS.sleep(2)
+            println("${threadName()} Lock acquired")
+            SECONDS.sleep(3)
         }
-        println("${Thread.currentThread().name} Lock released")
-    }.join()
+        println("${threadName()} Lock released")
+    }
 
     thread {
-        lock.withTimeoutLock(1) {
-            println("${Thread.currentThread().name} Lock acquired")
+        lock.withTimeoutLock(4) {
+            println("${threadName()} Lock acquired")
         }
-        println("${Thread.currentThread().name} Lock released")
+        println("${threadName()} Lock released")
     }.join()
 
 }
