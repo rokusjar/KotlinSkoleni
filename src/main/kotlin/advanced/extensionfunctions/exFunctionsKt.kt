@@ -38,5 +38,7 @@ fun main(args: Array<String>) {
             .withDateOfBirth(LocalDateTime.now().minusYears(32))
             .build()
 
-
+    // TODO (6) Vraťte  se k funkci printAddressIfNotNull.
+    // TODO     Zkuste ji implementovat pomocí funkce let a poté pomocí funkce run
+    // TODO     Všimněte si rozdílu.
 }
