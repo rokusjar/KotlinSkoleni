@@ -41,4 +41,5 @@ fun main(args: Array<String>) {
     // TODO (6) Vraťte  se k funkci printAddressIfNotNull.
     // TODO     Zkuste ji implementovat pomocí funkce let a poté pomocí funkce run
     // TODO     Všimněte si rozdílu.
+    // Řešení není ve větvi, ukážeme si společně
 }
