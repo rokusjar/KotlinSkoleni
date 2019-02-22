@@ -2,6 +2,7 @@ package advanced.extensionfunctions
 
 import advanced.extensionfunctions.base.Employee
 import advanced.extensionfunctions.base.Person
+import java.time.LocalDateTime
 
 private fun initPerson() {
     // TODO (1) Podívejte se na metodu initPerson ve třídě ExFunctionsJava.
@@ -26,6 +27,16 @@ private fun printAddressIfNotNull(person: Person) {
     // Nápověda:    Vzpomeňte si na operátor ?.
 }
 
+
 fun main(args: Array<String>) {
+    // TODO (5)
+    // TODO     Zkontrolujte jestli má peter vyplněné příjmení. Pokud ne, tak nějaké nastavte
+    // TODO     Doplňte věk na základě známeho data narození
+    // TODO     Transfromujte objekt peter na objekt třídy Employee, nastavte fullName, age a
+    // TODO     vymyslete zaměstannci nějakou pozici.
+    var peter = Person.Builder("Peter")
+            .withDateOfBirth(LocalDateTime.now().minusYears(32))
+            .build()
+
 
 }

@@ -12,7 +12,7 @@ public class ExFunctionsJava {
         person.setFirstName("John");
         person.setLastName("Doe");
         person.setAge(24);
-        person.setBorn(LocalDateTime.now().minusYears(24));
+        person.setDateOfBirth(LocalDateTime.now().minusYears(24));
         person.setAddress("Radlická 714/113 Praha 5");
     }
 
@@ -36,4 +36,6 @@ public class ExFunctionsJava {
             System.out.println(address);
         }
     }
+
+
 }
