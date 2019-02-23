@@ -1,6 +1,7 @@
 package advanced.extensionfunctions.base;
 
 public class Employee {
+
     private String fullName;
     private Integer age;
     private String position;

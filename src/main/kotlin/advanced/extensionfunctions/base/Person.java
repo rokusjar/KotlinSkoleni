@@ -3,83 +3,71 @@ package advanced.extensionfunctions.base;
 import java.time.LocalDateTime;
 
 public class Person {
-    private String firstName;
-    private String lastName;
-    private Integer age;
-    private LocalDateTime dateOfBirth;
-    private String address;
+    private final String firstName;
+    private final String lastName;
+    private final LocalDateTime dateOfBirth;
+    private final String address;
+
+    public Person(String firstName, String lastName, LocalDateTime dateOfBirth, String address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.address = address;
+    }
 
     public String getFirstName() {
         return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public LocalDateTime getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDateTime dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+    public LocalDateTime getDateOfBirth() { return dateOfBirth; }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public static class Builder {
 
-        private Person person;
+        private String firstName;
+        private String lastName;
+        private LocalDateTime dateOfBirth;
+        private String address;
 
-        public Builder(String firstName) {
-            person = new Person();
-            person.setFirstName(firstName);
+        public Builder() {
         }
 
-        public Builder withLastName(String lastName) {
-            person.setLastName(lastName);
+        public Builder(Person person) {
+            this.firstName = person.firstName;
+            this.lastName = person.lastName;
+            this.dateOfBirth = dateOfBirth;
+            this.address = person.address;
+        }
+
+        public Builder firstName(String lastName) {
+            this.lastName = lastName;
             return this;
         }
 
-        public Builder withAge(Integer age) {
-            person.setAge(age);
+        public Builder lastName(String lastName) {
+            this.lastName = lastName;
             return this;
         }
 
-        public Builder withAddress(String address) {
-            person.setAddress(address);
+        public Builder dateOfBirth(LocalDateTime dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
             return this;
         }
 
-        public Builder withDateOfBirth(LocalDateTime dateOfBirth) {
-            person.setDateOfBirth(dateOfBirth);
+        public Builder address(String address) {
+            this.address = address;
             return this;
         }
 
         public Person build() {
-            return person;
+            return new Person(firstName, lastName, dateOfBirth, address);
         }
     }
 
@@ -88,7 +76,6 @@ public class Person {
         return "Person{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", age=" + age +
                 ", dateOfBirth=" + dateOfBirth +
                 ", address='" + address + '\'' +
                 '}';

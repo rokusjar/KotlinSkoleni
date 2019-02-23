@@ -7,27 +7,27 @@ import java.time.LocalDateTime;
 
 public class ExFunctionsJava {
 
-    public static void initPerson() {
-        Person person = new Person();
-        person.setFirstName("John");
-        person.setLastName("Doe");
-        person.setAge(24);
-        person.setDateOfBirth(LocalDateTime.now().minusYears(24));
-        person.setAddress("Radlická 714/113 Praha 5");
-    }
-
-    public static void fillFirstNameIfMissing(Person person, String name) {
-        if (person.getFirstName() == null || person.getFirstName().isEmpty()) {
-            person.setFirstName(name);
-        }
-    }
-
     public static Employee createEmployee(Person person, String position) {
         Employee employee = new Employee();
         employee.setFullName(person.getFirstName() + " " + person.getLastName());
-        employee.setAge(person.getAge());
+        employee.setAge(LocalDateTime.now().getYear()  - person.getDateOfBirth().getYear());
         employee.setPosition(position);
         return employee;
+    }
+
+    public static void fillPositionIfMissing(Employee employee, String position) {
+        if (employee.getPosition() == null || employee.getPosition().isEmpty()) {
+            employee.setPosition(position);
+        }
+    }
+
+    public static void initPerson() {
+        Person person = new Person.Builder()
+                .firstName("John")
+                .lastName("Doe")
+                .dateOfBirth(LocalDateTime.now().minusYears(32))
+                .address("Radlická 714/113 Praha 5")
+                .build();
     }
 
     public static void printAddressIfNotNull(Person person) {
