@@ -12,7 +12,7 @@ private fun initPerson() {
         this.firstName = "John"
         this.lastName = "Doe"
         this.age = 24
-        this.born = LocalDateTime.now().minusYears(24)
+        this.dateOfBirth = LocalDateTime.now().minusYears(24)
         this.address = "Radlická 714/113 Praha 5"
     }
 }
@@ -43,6 +43,26 @@ private fun printAddressIfNotNull(person: Person) {
     person.address?.let { println(it) }
 }
 
-fun main(args: Array<String>) {
 
+fun main(args: Array<String>) {
+    // TODO (5)
+    // TODO     Zkontrolujte jestli má peter vyplněné příjmení. Pokud ne, tak nějaké nastavte
+    // TODO     Doplňte věk na základě známeho data narození
+    // TODO     Transfromujte objekt peter na objekt třídy Employee, nastavte fullName, age a
+    // TODO     vymyslete zaměstannci nějakou pozici.
+    var peter = Person.Builder("Peter")
+            .withDateOfBirth(LocalDateTime.now().minusYears(32))
+            .build()
+
+    val employee = peter.apply {
+        lastName = lastName ?: "Parker"
+        age = LocalDateTime.now().year - dateOfBirth.year
+    }.let { person ->
+        // TODO Dá se to ještě vylepšit?
+        Employee().also {
+            it.fullName = "${person.firstName} ${person.lastName}"
+            it.age = person.age
+            it.position = "Hero"
+        }
+    }
 }
