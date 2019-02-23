@@ -4,36 +4,74 @@ import advanced.extensionfunctions.base.Employee
 import advanced.extensionfunctions.base.Person
 import java.time.LocalDateTime
 
-private fun initPerson() {
-    // TODO (1) Podívejte se na metodu initPerson ve třídě ExFunctionsJava.
-    // TODO     Vytvořte stejnou funkci v Kotlinu a zkuste použít rozšiřující funkce.
-
-    with(Person()) {
-        this.firstName = "John"
-        this.lastName = "Doe"
-        this.age = 24
-        this.dateOfBirth = LocalDateTime.now().minusYears(24)
-        this.address = "Radlická 714/113 Praha 5"
-    }
-}
-
-private fun fillFirstNameIfMissing(person: Person, name: String) {
-    // TODO (2) Podívejte se na metodu fillFirstNameIfMissing ve třídě ExFunctionsJava.
-    // TODO     Vytvořte stejnou funkci v Kotlinu, zkuste použít rozšiřující funkce.
-
-    person.apply { firstName = firstName.takeUnless { it.isNullOrBlank() } ?: "Unknown" }
-}
-
 private fun createEmployee(person: Person, position: String): Employee {
-    // TODO (3) Podívejte se na metodu createEmployee ve třídě ExFunctionsJava.
-    // TODO     Vytvořte stejnou funkci v Kotlinu a zkuste použít rozšiřující funkce.
+    // TODO (1) Podívejte se na metodu createEmployee ve třídě ExFunctionsJava.
+    // TODO (1.1) Vytvořte stejnou funkci v Kotlinu a zkuste použít rozšiřující funkce.
 
     return Employee().apply {
         fullName = "${person.firstName} ${person.lastName}"
-        age = person.age
+        age = LocalDateTime.now().year - person.dateOfBirth.year
         this.position = position
     }
 }
+
+private fun fillPositionIfMissing(employee: Employee, defaultPosition: String) {
+    // TODO (2) Podívejte se na metodu fillPositionIfMissing ve třídě ExFunctionsJava.
+    // TODO     Vytvořte stejnou funkci v Kotlinu, zkuste použít rozšiřující funkce.
+
+    employee.apply { position = position.takeUnless { it.isNullOrBlank() } ?: defaultPosition }
+}
+
+private fun initPerson() {
+    // TODO (3) Podívejte se na metodu initPerson ve třídě ExFunctionsJava.
+    // TODO (3.1) Vytvořte stejnou funkci v Kotlinu a zkuste použít rozšiřující funkce.
+
+    // proc jsem tady použil run { } a kde se to hodí použit
+    run {
+        val person = Person.Builder().apply {
+            firstName("John")
+            lastName("Doe")
+            dateOfBirth(LocalDateTime.now().minusYears(24))
+            address("Radlická 714/113 Praha 5")
+            build()
+        }
+    }
+
+    run {
+        val person = Person.Builder().let {
+            it.firstName("John")
+            it.lastName("Doe")
+            it.dateOfBirth(LocalDateTime.now().minusYears(24))
+            it.address("Radlická 714/113 Praha 5")
+            it.build()
+        }
+    }
+
+    run {
+        val person = with(Person.Builder()) {
+            firstName("John")
+            lastName("Doe")
+            dateOfBirth(LocalDateTime.now().minusYears(24))
+            address("Radlická 714/113 Praha 5")
+            build()
+        }
+    }
+
+}
+
+// TODO (3.2) Vytvořte funkci createPerson, ktera nebude muset volat na konci blocku build()
+/**
+    val person = createPerson {
+        firstName("John")
+        lastName("Doe")
+        age(24)
+        address("Radlická 714/113 Praha 5")
+    }
+ */
+// Nápověda: signature bude  createPerson(block: Person.Builder.()-> Person.Builder): Person
+
+fun createPerson(block: Person.Builder.()-> Person.Builder) = Person.Builder().apply { block() }.build()
+
 
 private fun printAddressIfNotNull(person: Person) {
     // TODO (4)     Podívejte se na metodu printAddressIfNotNull ve třídě ExFunctionsJava.
@@ -41,28 +79,30 @@ private fun printAddressIfNotNull(person: Person) {
     // Nápověda:    Vzpomeňte si na operátor ?.
 
     person.address?.let { println(it) }
-}
+    person.address?.run { println(this) }
 
-
-fun main(args: Array<String>) {
-    // TODO (5)
-    // TODO     Zkontrolujte jestli má peter vyplněné příjmení. Pokud ne, tak nějaké nastavte
-    // TODO     Doplňte věk na základě známeho data narození
-    // TODO     Transfromujte objekt peter na objekt třídy Employee, nastavte fullName, age a
-    // TODO     vymyslete zaměstannci nějakou pozici.
-    var peter = Person.Builder("Peter")
-            .withDateOfBirth(LocalDateTime.now().minusYears(32))
-            .build()
-
-    val employee = peter.apply {
-        lastName = lastName ?: "Parker"
-        age = LocalDateTime.now().year - dateOfBirth.year
-    }.let { person ->
-        // TODO Dá se to ještě vylepšit?
-        Employee().also {
-            it.fullName = "${person.firstName} ${person.lastName}"
-            it.age = person.age
-            it.position = "Hero"
-        }
+    // s with to nejde než if nebo další použiti let/run
+    with(person.address) {
+        if (this == null) println(this)
     }
 }
+
+
+// TODO (5) Vytvořte ext funkci toEmployee(position: String): Employee v Kotlinu na tride Person a použíte rozšiřující funkce.
+
+// TODO proc jsem nepouzil apply()?
+fun Person.toEmployee(position: String) = Employee().let {
+    it.fullName = "$firstName $lastName"
+    it.age = LocalDateTime.now().year - dateOfBirth.year
+    it.position = position
+    it
+}
+
+val person = createPerson {
+    firstName("John")
+    lastName("Hook")
+    dateOfBirth(LocalDateTime.now().minusYears(30))
+    address("Radlická 714/113 Praha 5")
+}
+val employee = person.toEmployee("Drug dealer")
+
