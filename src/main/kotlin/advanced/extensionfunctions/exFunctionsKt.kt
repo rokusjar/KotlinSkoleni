@@ -22,12 +22,12 @@ private fun initPerson() {
 
 // TODO (3.2) Vytvořte funkci createPerson, ktera nebude muset volat na konci blocku build()
 /**
-val person = createPerson {
-firstName("John")
-lastName("Doe")
-age(24)
-address("Radlická 714/113 Praha 5")
-}
+    val person = createPerson {
+        firstName("John")
+        lastName("Doe")
+        age(24)
+        address("Radlická 714/113 Praha 5")
+    }
  */
 // Nápověda: signature bude  createPerson(block: Person.Builder.()-> Person.Builder): Person
 
