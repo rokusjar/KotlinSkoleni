@@ -5,7 +5,9 @@ import java.nio.charset.Charset
 import java.time.LocalDate
 import kotlin.system.measureTimeMillis
 
-data class Transaction(val date: LocalDate, val accountNumber: String, val partyAccount: String, val amount: Double)
+data class Transaction(val date: LocalDate, val accountNumber: String, val partyAccount: String, val amount: Double) {
+    companion object
+}
 
 fun Transaction.toCsv(): String = "$date;$accountNumber;$partyAccount;$amount"
 
@@ -38,10 +40,23 @@ fun main() {
             }
             .forEach(::println)
 
+    println("Version 2 ...")
+    // verze 2
+    fun Transaction.Companion.fromLine(line: String) = line.split(';').let {
+        Transaction(date = LocalDate.parse(it[0]), accountNumber = it[1], partyAccount = it[2], amount = it[3].toDouble())
+    }
+    File("dataCopy.csv")
+            .useLines { lines -> lines.drop(1).map { Transaction.fromLine(it) }.forEach(::println) }
+
+    
     // TODO (4) smaž oba výše vytvořené soubory
     dataFile.delete()
     dataFileCopy.delete()
 
     // TODO (5) vypiš do konzole obsah aktuálního adresáře a rekurzivně všech podadresářů, změř jak dlouho v ms operace trvala
-    measureTimeMillis { File(".").walkTopDown().forEach { println(it) } }.also { println("Operace trvala $it ms.") }
+    measureTimeMillis {
+        File(".")
+                .walkTopDown()
+                .forEach { println(it) }
+    }.also { println("Operace trvala $it ms.") }
 }
