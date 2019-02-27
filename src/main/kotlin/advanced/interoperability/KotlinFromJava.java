@@ -24,7 +24,6 @@ public class KotlinFromJava {
         //System.out.println(effectiveJava.pages);
 
         // TODO (7) Přidejte do třídy Book konstantu, kterou bude možné získat jako statickou proměnnou.
-        // Book.getSomeConstant
         // Book.someConstant
 
         // TODO (8) Zavolejte metodu sign z kotlin objektu BookService.
