@@ -33,8 +33,7 @@ private fun initPerson() {
             lastName("Doe")
             dateOfBirth(LocalDateTime.now().minusYears(24))
             address("Radlická 714/113 Praha 5")
-            build()
-        }
+        }.build()
     }
 
     run {
