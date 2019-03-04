@@ -16,6 +16,9 @@ fun main() {
     // Proč je možné přes mapu iterovat i když nedědí od Iterable?
 
     // TODO (5) vytiskni obsah mapy bankovních kódů pomocí připravené funkce printIterable (funkci nesmíte měnit)
+    fun printIterable(iterable: Iterable<*>) {
+        println("Iterable printout: [${iterable.javaClass.canonicalName}:$iterable]")
+    }
 
     // TODO (6) vytvoř z předchozí mapy mapu, kde klíče budou hash kódy předchozích klíčů
 
