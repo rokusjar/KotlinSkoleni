@@ -27,6 +27,7 @@ fun main() {
             }
 
     // TODO (2) vytvoř kopii vytvořeného souboru, do stejného adresáře
+    File("csv/dataCopy.csv").delete()
     val dataFileCopy = dataFile.copyTo(File("csv/dataCopy.csv"))
 
     // TODO (3) načti CSV soubor zapsaný v předchozím příkladě do seznamu transakcí (můžeš předpokládat nezměněnou strukturu souboru),
@@ -35,7 +36,7 @@ fun main() {
             .drop(1)
             .map {
                 with(it.split(";")) {
-                    Transaction(LocalDate.parse(component1()), component2(), component3(), component4().toDouble())
+                    Transaction(LocalDate.parse(this[0]), this[1], this[2], this[3].toDouble())
                 }
             }
             .forEach(::println)
@@ -45,7 +46,7 @@ fun main() {
     fun Transaction.Companion.fromLine(line: String) = line.split(';').let {
         Transaction(date = LocalDate.parse(it[0]), accountNumber = it[1], partyAccount = it[2], amount = it[3].toDouble())
     }
-    File("dataCopy.csv")
+    File("csv/dataCopy.csv")
             .useLines { lines -> lines.drop(1).map { Transaction.fromLine(it) }.forEach(::println) }
 
 
