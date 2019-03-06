@@ -46,8 +46,8 @@ public class Person {
             this.address = person.address;
         }
 
-        public Builder firstName(String lastName) {
-            this.lastName = lastName;
+        public Builder firstName(String firstName) {
+            this.firstName = firstName;
             return this;
         }
 

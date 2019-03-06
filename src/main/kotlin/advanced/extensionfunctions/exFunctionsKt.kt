@@ -29,7 +29,7 @@ private fun initPerson() {
         address("Radlická 714/113 Praha 5")
     }
  */
-// Nápověda: signature bude  createPerson(block: Person.Builder.()-> Person.Builder): Person
+// Nápověda: signature bude  createPerson(block: Person.Builder.()-> Unit): Person
 
 
 private fun printAddressIfNotNull(person: Person) {
