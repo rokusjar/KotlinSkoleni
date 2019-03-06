@@ -25,7 +25,7 @@ private fun initPerson() {
     val person = createPerson {
         firstName("John")
         lastName("Doe")
-        age(24)
+        dateOfBirth(24)
         address("Radlická 714/113 Praha 5")
     }
  */
